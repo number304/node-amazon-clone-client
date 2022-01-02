@@ -1,7 +1,7 @@
 <template>
   <!--FOOTER-->
   <footer>
-    <div class="navLeftFooter">
+    <div class="navLeftFooter" style="margin-bottom: 0px">
       <a href="#" id="navBackToTop">
         <div class="navFooterBackToTop">
           <span class="navFooterBackToTopText">Back to top</span>
