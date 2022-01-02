@@ -28,14 +28,14 @@
                   <div>
                     <div class="row">
                       <div class="col-sm-3 text-center">
-                        <a href="#">
+                        <nuxt-link :to="`/products/${product._id}`">
                           <img
                             :src="product.photo"
                             alt="Product photo"
                             class="img-fluid"
                             style="width: 150px"
                           />
-                        </a>
+                        </nuxt-link>
                       </div>
 
                       <div class="col-sm-9">
@@ -57,9 +57,9 @@
                         <div class="a-row a-spacing-small">
                           <span class="a-size-small a-color-secondary">by</span>
                           <span class="a-size-small a-color-secondary">
-                            <a href="#" class="a-link-normal a-text-normal"
-                              >{{ product.owner.name }}</a
-                            >
+                            <a href="#" class="a-link-normal a-text-normal">{{
+                              product.owner.name
+                            }}</a>
                           </span>
                         </div>
 
