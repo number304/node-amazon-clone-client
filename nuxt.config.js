@@ -16,7 +16,7 @@ export default {
   },
 
   publicRuntimeConfig: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000/',
+    baseURL: process.env.BASE_URL || "http://localhost:3000/",
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -39,12 +39,14 @@ export default {
     "@nuxtjs/axios",
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
+
+    "@nuxtjs/auth",
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: process.env.BASE_URL || 'http://localhost:3000/',
+    baseURL: process.env.BASE_URL || "http://localhost:3000/",
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -54,6 +56,23 @@ export default {
     },
   },
 
+  proxy: {
+    "/api": URL,
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            propertyName: "token",
+          },
+          logout: true,
+        },
+      },
+    },
+  },
 };
