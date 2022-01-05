@@ -92,9 +92,10 @@
                 </span>
               </a>
               <span class="icp-nav-link-border"></span>
+
               <template v-if="$auth.$state.loggedIn">
                 <nuxt-link
-                  to="#"
+                  to="/profile"
                   class="nav-a nav-a-2"
                   id="nav-link-accountList"
                   tabindex="0"

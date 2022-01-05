@@ -7,7 +7,9 @@
         <ul class="a-unordered-list a-horizontal a-size-small">
           <li>
             <span class="a-list-item">
-              <a class="a-link-normal a-color-tertiary" href="#">{{ product.category.type }}</a>
+              <a class="a-link-normal a-color-tertiary" href="#">{{
+                product.category.type
+              }}</a>
             </span>
           </li>
           <li>
@@ -15,9 +17,9 @@
           </li>
           <li>
             <span class="a-list-item">
-              <a class="a-link-normal a-color-tertiary" href="#"
-                >{{ product.title }}</a
-              >
+              <a class="a-link-normal a-color-tertiary" href="#">{{
+                product.title
+              }}</a>
             </span>
           </li>
         </ul>
@@ -46,10 +48,7 @@
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
                       <div class="smallAuthorImageContainer">
                         <a href="#">
-                          <img
-                            :src="product.owner.photo"
-                            class="img-fluid"
-                          />
+                          <img :src="product.owner.photo" class="img-fluid" />
                         </a>
                       </div>
                     </div>
@@ -374,19 +373,31 @@
             </div>
           </div>
         </div>
+
+        <review-section :product="product" :reviews="reviews"></review-section>
       </div>
     </div>
   </main>
 </template>
 
 <script>
+import ReviewSection from "../../components/ReviewSection.vue";
+
 export default {
+  components: { ReviewSection },
   async asyncData({ $axios, params }) {
     try {
-      let response = await $axios.get(`/api/product/${params.id}`);
+      let singleProduct = $axios.get(`/api/product/${params.id}`);
+      let reviews = $axios.get(`/api/review/${params.id}`);
+
+      const [productResponse, reviewsResponse] = await Promise.all([
+        singleProduct,
+        reviews,
+      ]);
 
       return {
-        product: response.data.product,
+        product: productResponse.data.product,
+        reviews: reviewsResponse.data.reviews,
       };
     } catch (error) {
       console.error(error);
