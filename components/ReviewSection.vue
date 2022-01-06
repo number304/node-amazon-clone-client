@@ -323,7 +323,7 @@
                   <a href="#">
                     <i
                       class="fas fa-star"
-                      v-for="i in review.rating"
+                      v-for="i in review.reviews"
                       :key="i"
                     ></i>
                   </a>
@@ -398,7 +398,7 @@ export default {
   props: ["product", "reviews"],
   computed: {
     ratingNumber() {
-      return this.product?.rating.length;
+      return this.product?.reviews.length;
     },
   },
 };

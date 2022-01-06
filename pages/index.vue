@@ -41,7 +41,10 @@
                       <div class="col-sm-9">
                         <div class="a-row a-spacing-small">
                           <!-- Title and Date -->
-                          <a href="#" class="a-link-normal">
+                          <nuxt-link
+                            :to="`/products/${product._id}`"
+                            class="a-link-normal"
+                          >
                             <h2 class="a-size-medium">
                               {{ product.title }}
                               <span class="a-letter-space"></span>
@@ -50,7 +53,7 @@
                                 >Sep 3, 2021</span
                               >
                             </h2>
-                          </a>
+                          </nuxt-link>
                         </div>
 
                         <!-- Author name -->
@@ -123,6 +126,19 @@
                           <div class="col-sm-5">
                             <div class="a-row a-spacing-mini">
                               <!-- Star Ratings -->
+                              <star-rating
+                                v-model="product.averageRating"
+                                :show-rating="false"
+                                :glow="1"
+                                :border-width="1"
+                                :rounded-corners="true"
+                                :read-only="true"
+                                :star-size="18"
+                                :star-points="[
+                                  23, 2, 15, 17, 0, 19, 10, 34, 7, 50, 23, 43,
+                                  38, 50, 36, 34, 46, 19, 31, 17,
+                                ]"
+                              ></star-rating>
                             </div>
                           </div>
                         </div>
