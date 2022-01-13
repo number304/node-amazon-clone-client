@@ -30,7 +30,9 @@
             Inside of the Mind of the legendary Scientist
           </div>
           <div class="bx-root-link">
-            <span>Order Now</span>
+            <nuxt-link to="/products/61dc8fab2dafe024078e0dad">
+              <span>Order Now</span>
+            </nuxt-link>
           </div>
         </div>
       </div>

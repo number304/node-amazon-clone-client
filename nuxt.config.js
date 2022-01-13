@@ -23,9 +23,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    '~/plugins/star-rating.client.js'
-  ],
+  plugins: ["~/plugins/localStorage.client.js", "~/plugins/star-rating.client.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

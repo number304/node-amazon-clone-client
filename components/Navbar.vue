@@ -30,9 +30,9 @@
                   <span class="nav-line-1" id="glow-ingress-line-1"
                     >Deliver to</span
                   >
-                  <span class="nav-line-2" id="glow-ingress-line-2"
-                    >California</span
-                  >
+                  <span class="nav-line-2" id="glow-ingress-line-2">{{
+                    $auth.$state.user.address.city
+                  }}</span>
                 </div>
               </nuxt-link>
             </div>
@@ -106,8 +106,7 @@
                     <span
                       class="nav-icon nav-arrow"
                       style="visibility: visible"
-                      ></span
-                    >
+                    ></span>
                   </span>
                 </nuxt-link>
               </template>
@@ -143,7 +142,7 @@
                   id="nav-cart-count"
                   aria-hidden="true"
                   class="nav-cart-count nav-cart-0"
-                  >0</span
+                  >{{ getCartLength }}</span
                 >
               </nuxt-link>
             </div>
@@ -155,10 +154,14 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import Search from "@/components/Search.vue";
 export default {
   components: {
     Search,
+  },
+  computed: {
+    ...mapGetters(["getCartLength"]),
   },
 };
 </script>
