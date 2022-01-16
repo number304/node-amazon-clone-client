@@ -2,6 +2,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "client",
+    script: [{ src: "https://js.stripe.com/v3" }],
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -23,7 +24,10 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/plugins/localStorage.client.js", "~/plugins/star-rating.client.js"],
+  plugins: [
+    "~/plugins/localStorage.client.js",
+    "~/plugins/star-rating.client.js",
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
