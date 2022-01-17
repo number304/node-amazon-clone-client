@@ -31,7 +31,7 @@
                     >Deliver to</span
                   >
                   <span class="nav-line-2" id="glow-ingress-line-2">{{
-                    $auth.$state.user.address.city
+                    $auth.$state.user ? $auth.$state.user.address.city : "USA"
                   }}</span>
                 </div>
               </nuxt-link>
